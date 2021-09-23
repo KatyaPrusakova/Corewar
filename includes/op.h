@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   op.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/10/04 11:33:27 by zaz               #+#    #+#             */
-/*   Updated: 2021/04/17 17:23:28 by gmolin           ###   ########.fr       */
+/*   Created: 2021/09/15 13:23:51 by katyaprusak       #+#    #+#             */
+/*   Updated: 2021/09/15 13:24:02 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 /*
 ** All sizes are in bytes.
-** We assume that an int is 32 bits. Is this true for you?
+** We assume that an int is 32 bits.
 */
 
 #ifndef OP_H
