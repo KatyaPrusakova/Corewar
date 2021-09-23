@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mlink <mlink@student.42.fr>                +#+  +:+       +#+         #
+#    By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/15 12:46:08 by mlink             #+#    #+#              #
-#    Updated: 2021/09/15 13:08:23 by mlink            ###   ########.fr        #
+#    Updated: 2021/09/23 19:54:25 by katyaprusak      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,8 @@ SRC_ASM = main.c
 
 SRC_VM = main.c 
 
-SRC_DIR_ASM = srs\asm
-OBJ_DIR_ASM = objects\asm
+SRC_DIR_ASM = asm/
+OBJ_DIR_ASM = objects/asm
 SRCC_ASM = $(addprefix $(SRC_DIR_ASM)/, $(SRC_ASM))
 
 SRC_DIR_VM = srs\vm
@@ -39,6 +39,7 @@ GREEN = \033[0;32m
 BOLD_BLUE = \033[1;34m
 
 all: $(NAME_ASM) $(NAME_VM)
+asm: $(NAME_ASM)
 
 $(OBJ_DIR_ASM)/%.o: $(SRC_DIR_ASM)%.c
 	@/bin/mkdir -p $(OBJ_DIR_ASM)
