@@ -6,7 +6,7 @@
 #    By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/23 19:56:11 by katyaprusak       #+#    #+#              #
-#    Updated: 2021/09/23 19:58:35 by katyaprusak      ###   ########.fr        #
+#    Updated: 2021/09/23 22:53:09 by katyaprusak      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRCS = ./*.c
 
 LIBFT = ../libft/libft.a
 
-SRC_FILES = main.c op.c
+SRC_FILES = main.c
 SRC_PATH = ./
 SRC = $(addprefix $(SRC_PATH), $(SRC_FILES))
 
@@ -44,8 +44,8 @@ $(NAME):
 	@echo "Compiling 'libft.a'"
 	@$(MAKE) -C ../libft
 	@echo "$(GREEN)Done$(RESET)\n"
-	@echo "Compiling 'corewar'- executable"
-	@gcc $(SRC) $(LIBFT) -o $(NAME)
+	@echo "Compiling 'asm'- executable"
+	@gcc $(SRC) -I includes  $(LIBFT) -o $(NAME)
 	@echo "$(GREEN)Done$(RESET)\n"
 
 all: $(NAME)
@@ -66,7 +66,7 @@ re:
 	@$(MAKE) fclean
 	@$(MAKE) re -C ../libft
 	@echo "Compiling 'asm'- executable"
-	@gcc $(SRC) $(LIBFT) -o $(NAME)
+	@gcc $(SRC) $(LIBFT) -I includes  -o $(NAME)
 	@echo "$(GREEN)Done$(RESET)\n"
 
 rec:
