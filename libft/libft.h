@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksuomala <ksuomala@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: mlink <mlink@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/09 12:07:29 by ksuomala          #+#    #+#             */
-/*   Updated: 2021/05/31 17:52:12 by ksuomala         ###   ########.fr       */
+/*   Updated: 2021/09/25 14:45:51 by mlink            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,5 +120,6 @@ void				ft_putgrid_int(int **grid, int y, int x, int min_width);
 int					ft_str_isvalid(char *str, char *valid_characters);
 int					ft_isnumeric_str(char *str);
 int					ft_strnbrcmp(char *a, char *b);
+int					ft_str_end(const char *src_1, const char *src_2);
 
 #endif

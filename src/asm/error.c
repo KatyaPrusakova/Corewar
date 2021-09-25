@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlink <mlink@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/14 14:16:10 by ksuomala          #+#    #+#             */
-/*   Updated: 2021/09/25 14:47:57 by mlink            ###   ########.fr       */
+/*   Created: 2021/09/25 13:31:15 by mlink             #+#    #+#             */
+/*   Updated: 2021/09/25 13:43:40 by mlink            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "asm.h"
 
-int	ft_tolower(int c)
+void	print_help()
 {
-	if (c >= 'A' && c <= 'Z')
-		return (c + 32);
-	return (c);
+	ft_putendl("USAGE:");
+    ft_putendl("    	./asm <filename.s>");
+	exit(1);
+}
+
+void		ft_error_whit_help(char *str)
+{
+	write(1, str, ft_strlen(str));
+	print_help();
+}
+
+void		ft_error(char *str)
+{
+	write(1, str, ft_strlen(str));
+	exit(1);
 }
