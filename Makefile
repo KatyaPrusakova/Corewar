@@ -6,13 +6,13 @@
 #    By: mlink <mlink@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/15 12:46:08 by mlink             #+#    #+#              #
-#    Updated: 2021/09/25 14:41:24 by mlink            ###   ########.fr        #
+#    Updated: 2021/09/25 16:05:11 by mlink            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = asm
 
-SRC = main.c error.c
+SRC = main.c error.c save_name_comment.c
 
 SRC_DIR = src/asm
 OBJ_DIR = objects

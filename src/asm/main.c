@@ -6,13 +6,13 @@
 /*   By: mlink <mlink@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 13:10:31 by mlink             #+#    #+#             */
-/*   Updated: 2021/09/25 14:57:08 by mlink            ###   ########.fr       */
+/*   Updated: 2021/09/25 16:18:50 by mlink            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 #include "error.h"
-#include "stdio.h"
+#include "stdio.h" //remove
 
 char	*filename_pars(const char *source, const char *src_type,\
 		const char *target_type)
@@ -48,37 +48,32 @@ void		init_asm(char *filename, t_asm **core)
 	(*core)->champ_comment = NULL;
 }
 
-void	save_name_comment(t_asm **core, char *line)
-{
-	char	*ret;
-	int		i;
-	int		pos_start;
-	// char	*cntd;
-	(*core)->line_cnt = (*core)->line_cnt;
 
-	i = 0;
-	// find champion's name start
-	while (line[i] != '\"')
-	{
-		(line[i] == '\0') ? ft_error(ERR_NO_NAME) : 0;
-		i += 1;
-	}
-	pos_start = i + 1;
-	i += 1;
-	while (line[i] != '\0' && line[i] != '\"')
-		i += 1;
-	if (line[i] == '\0')
-	{
-		ret = ft_strdup(&line[pos_start]);
-		// cntd = continue_reading((*core)->source_fd);
-		// ret = strjoin_first(ret, cntd);
-		// free(cntd);
-	}
-	else
-		ret = ft_strdup(&line[pos_start]);
-	printf("%s'n", ret);
-	// return (remove_trailing_spaces(ret));
-}
+// void	lex_parser(t_asm *core, t_operation **list, char *line)
+// {
+	// char	*reform;
+
+	// if (!line || line[0] == '\0')
+	// 	return ;
+	// while (*line == ' ' || *line == '\t')
+	// 	line = line + 1;
+	// if (*line == '\0')
+	// 	return ;
+	// else if (*line == COMMENT_CHAR || *line == ALT_COMMENT_CHAR)
+	// 	return ;
+	// else if (!core->champ_name || !core->champ_comment || *line == '.')
+	// {
+	// 	if (*line == '.')
+	// 		ft_dprintf(2, "Invalid command on line %d\n", core->line_cnt);
+	// 	else
+	// 		ft_dprintf(2, "Name or comment missing\n");
+	// 	ft_error("Lexical error!");
+	// }
+	// reform = reformat(line);
+	// list_append(list);
+	// get_label_op(core, list, reform);
+	// free(reform);
+// }
 
 void	read_file(t_asm **core, t_operation **list)
 {
@@ -92,23 +87,23 @@ void	read_file(t_asm **core, t_operation **list)
 	{
 		tmp = line;
 		(*core)->line_cnt += 1;
-		while ((*tmp == ' ' || *tmp == '\t') && *tmp != '\0') //is_space ft
+		while ((*tmp == ' ' || *tmp == '\t') && *tmp != '\0')
 			tmp++;
 		if (ft_strnstr(tmp, NAME_CMD_STRING, ft_strlen(NAME_CMD_STRING)))
 		{
 
 			((*core)->champ_name) ? ft_error(ERR_MULT_NAME) : 0;
-			save_name_comment(core, line); //core->champ_name save!!!
+			(*core)->champ_name = save_name_comment(core, line);
 		}
-	// 	else if (ft_strnstr(tmp, COMMENT_CMD_STRING, \
-	// 						ft_strlen(COMMENT_CMD_STRING)))
-	// 	{
-	// 		(core->champ_comment) ? ft_error("Multiple comments!") : 0;
-	// 		core->champ_comment = save_name_comment((*core)->source_fd, line);
-	// 	}
+		else if (ft_strnstr(tmp, COMMENT_CMD_STRING, \
+							ft_strlen(COMMENT_CMD_STRING)))
+		{
+			((*core)->champ_comment) ? ft_error(ERR_MULT_NAME) : 0;
+			(*core)->champ_comment = save_name_comment(core, line);
+		}
 	// 	else
 	// 		lex_parser(core, list, line);
-	// 	free(line);
+		free(line);
 	}
 	// do_checks(core, list);
 }

@@ -6,7 +6,7 @@
 /*   By: mlink <mlink@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/09 12:07:29 by ksuomala          #+#    #+#             */
-/*   Updated: 2021/09/25 14:45:51 by mlink            ###   ########.fr       */
+/*   Updated: 2021/09/25 15:52:30 by mlink            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,5 +121,6 @@ int					ft_str_isvalid(char *str, char *valid_characters);
 int					ft_isnumeric_str(char *str);
 int					ft_strnbrcmp(char *a, char *b);
 int					ft_str_end(const char *src_1, const char *src_2);
+int					ft_isspace(char c);
 
 #endif

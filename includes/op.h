@@ -6,7 +6,7 @@
 /*   By: mlink <mlink@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 14:14:38 by mlink             #+#    #+#             */
-/*   Updated: 2021/09/25 14:15:48 by mlink            ###   ########.fr       */
+/*   Updated: 2021/09/25 15:57:42 by mlink            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@
 // # define IDX_MOD				(MEM_SIZE / 8)
 // # define CHAMP_MAX_SIZE			(MEM_SIZE / 6)
 
-// # define COMMENT_CHAR			'#'
-// # define ALT_COMMENT_CHAR		';'
+# define COMMENT_CHAR			'#'
+# define ALT_COMMENT_CHAR		';'
 // # define LABEL_CHAR				':'
 // # define DIRECT_CHAR			'%'
 // # define SEPARATOR_CHAR			','
@@ -41,7 +41,7 @@
 // # define LABEL_CHARS			"abcdefghijklmnopqrstuvwxyz_0123456789"
 
 # define NAME_CMD_STRING		".name"
-// # define COMMENT_CMD_STRING		".comment"
+# define COMMENT_CMD_STRING		".comment"
 
 // # define REG_NUMBER				16
 

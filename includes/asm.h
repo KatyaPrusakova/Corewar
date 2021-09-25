@@ -6,7 +6,7 @@
 /*   By: mlink <mlink@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 13:11:15 by mlink             #+#    #+#             */
-/*   Updated: 2021/09/25 14:53:40 by mlink            ###   ########.fr       */
+/*   Updated: 2021/09/25 16:04:31 by mlink            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,5 @@ typedef struct			s_operation
 void		ft_error(char *str);
 void		ft_error_whit_help(char *str);
 void		print_help();
-
+char		*save_name_comment(t_asm **core, char *line);
 #endif
