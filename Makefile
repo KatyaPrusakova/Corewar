@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+         #
+#    By: mlink <mlink@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/15 12:46:08 by mlink             #+#    #+#              #
-#    Updated: 2021/09/23 19:54:25 by katyaprusak      ###   ########.fr        #
+#    Updated: 2021/09/25 13:01:41 by mlink            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,8 @@ SRC_DIR_ASM = asm/
 OBJ_DIR_ASM = objects/asm
 SRCC_ASM = $(addprefix $(SRC_DIR_ASM)/, $(SRC_ASM))
 
-SRC_DIR_VM = srs\vm
-OBJ_DIR_VM = objects\vm
+SRC_DIR_VM = srs/vm
+OBJ_DIR_VM = objects/vm
 SRCC_VM = $(addprefix $(SRC_DIR_VM)/, $(SRC_VM))
 
 FLAGS = -Wall -Wextra -Werror
