@@ -3,15 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mlink <mlink@student.42.fr>                +#+  +:+       +#+        */
+/*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 18:47:28 by mlink             #+#    #+#             */
-/*   Updated: 2021/09/25 18:50:08 by mlink            ###   ########.fr       */
+/*   Updated: 2021/09/29 16:32:18 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 #include "error.h"
+#include <stdio.h> // delete
+
+/* 
+** Функция инициализации переменных и проверки на наличие ошибок
+** file_name - имя файла
+** tab_labels - таблица меток
+*/
 
 static char	*filename_pars(const char *source, const char *src_type,\
 		const char *target_type)
@@ -19,10 +26,14 @@ static char	*filename_pars(const char *source, const char *src_type,\
 	char	*target;
 	char	*base;
 
+	
 	target = NULL;
 	// check if file ends on .s
 	if (ft_str_end(source, src_type))
 	{
+		printf("%s\n", source);
+		printf("%s\n", src_type);
+		printf("%s\n", "file file file");
 		//taking name from file ex test.s -> test
 		base = ft_strsub(source, 0, ft_strlen(source) - ft_strlen(src_type));
 		// making it test.cor
@@ -32,6 +43,10 @@ static char	*filename_pars(const char *source, const char *src_type,\
 	return (target);
 }
 
+/* 
+	Function that initializes all variables in t_asm struct and 
+	checks for errors.
+*/
 
 void		init_asm(char *filename, t_asm **core)
 {
@@ -48,6 +63,10 @@ void		init_asm(char *filename, t_asm **core)
 	(*core)->champ_comment = NULL;
 }
 
+/*
+	Function for initializing t_operation struct.
+*/
+	
 static t_operation		*new_list(void)
 {
 	t_operation *new;

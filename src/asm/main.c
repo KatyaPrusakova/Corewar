@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mlink <mlink@student.42.fr>                +#+  +:+       +#+        */
+/*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 13:10:31 by mlink             #+#    #+#             */
-/*   Updated: 2021/09/25 18:57:50 by mlink            ###   ########.fr       */
+/*   Updated: 2021/09/29 16:15:51 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 #include "error.h"
 #include "stdio.h" //remove
 
+
+/*
+	Function that checks if the file is correct and if it is, it saves it in the
+	corresponding new t_operation struct. 
+*/
 void		get_label_op(t_asm **core, t_operation **list, char *line)
 {
 	int			i;

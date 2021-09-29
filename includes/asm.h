@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   asm.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mlink <mlink@student.42.fr>                +#+  +:+       +#+        */
+/*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 13:11:15 by mlink             #+#    #+#             */
-/*   Updated: 2021/09/25 19:00:11 by mlink            ###   ########.fr       */
+/*   Updated: 2021/09/29 16:13:52 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,12 @@
 # define SRC_TYPE ".s"
 # define TRGT_TYPE ".cor"
 
+/*
+	s_asm is a structure that contains all the necessary information
+	required to assemble a file. It contains the file name, the file
+	descriptor, the number of lines, the number of bytes, the number
+	champion name, source_fd is the file descriptor of the source file.
+*/
 
 typedef struct			s_asm
 {
@@ -32,6 +38,10 @@ typedef struct			s_asm
 	int					line_cnt;
 }						t_asm;
 
+/*
+	s_operation is a structure that contains all the necessary information
+	required for an operation. It contains the operation n
+*/
 typedef struct			s_operation
 {
 	char				*label;
