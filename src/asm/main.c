@@ -6,7 +6,7 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 13:10:31 by mlink             #+#    #+#             */
-/*   Updated: 2021/09/29 16:15:51 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2021/09/29 17:12:49 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,13 @@ void		get_label_op(t_asm **core, t_operation **list, char *line)
 	}
 }
 
+/*
+	Function that checks if the file is correct and if it is, it saves it in the
+	corresponding new t_operation struct. Lexer tries to determine if proper token have been detected.
+	Gets the line and checks if it is a label or an operation.
+	reform is the line separated by "," sign therefore it into tokens.
+*/
+
 void	lex_parser(t_asm **core, t_operation **list, char *line)
 {
 	char	*reform;
@@ -67,8 +74,8 @@ void	lex_parser(t_asm **core, t_operation **list, char *line)
 		else
 			ft_error(ERR_NAME_COM);
 	}
+	
 	reform = reformat(line);
-	printf("%s\n", reform);
 	list_append(list);
 	get_label_op(core, list, reform);
 	free(reform);

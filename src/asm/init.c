@@ -6,7 +6,7 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 18:47:28 by mlink             #+#    #+#             */
-/*   Updated: 2021/09/29 16:32:18 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2021/09/29 17:03:10 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,8 @@
 #include <stdio.h> // delete
 
 /* 
-** Функция инициализации переменных и проверки на наличие ошибок
-** file_name - имя файла
-** tab_labels - таблица меток
+** Funtion to parse the name of the champion
+** source *.s transforms to target *.cor
 */
 
 static char	*filename_pars(const char *source, const char *src_type,\
@@ -31,13 +30,10 @@ static char	*filename_pars(const char *source, const char *src_type,\
 	// check if file ends on .s
 	if (ft_str_end(source, src_type))
 	{
-		printf("%s\n", source);
-		printf("%s\n", src_type);
-		printf("%s\n", "file file file");
-		//taking name from file ex test.s -> test
+		// test.s -> test
 		base = ft_strsub(source, 0, ft_strlen(source) - ft_strlen(src_type));
-		// making it test.cor
 		target = ft_strjoin(base, target_type);
+		// target = name_of_file.cor
 		free(base);
 	}
 	return (target);

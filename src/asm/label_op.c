@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   label_op.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mlink <mlink@student.42.fr>                +#+  +:+       +#+        */
+/*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 18:51:18 by mlink             #+#    #+#             */
-/*   Updated: 2021/09/25 18:52:57 by mlink            ###   ########.fr       */
+/*   Updated: 2021/09/29 17:10:27 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 #include "error.h"
+#include <stdio.h>
 
 static void	check_label_chars(char *label)
 {
@@ -75,8 +76,10 @@ void		save_label_op(t_operation **list, t_operation *new, \
 			tmp++;
 			save_label(list, new, line);
 			new->op_name = ft_strdup(tmp);
+			printf("%s\n", new->op_name);
 		}
 		else
 			new->op_name = ft_strdup(line);
+			printf("%s\n", new->op_name);
 	}
 }

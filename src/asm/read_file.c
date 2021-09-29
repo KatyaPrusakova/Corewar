@@ -3,22 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   read_file.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mlink <mlink@student.42.fr>                +#+  +:+       +#+        */
+/*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 18:37:35 by mlink             #+#    #+#             */
-/*   Updated: 2021/09/25 18:38:09 by mlink            ###   ########.fr       */
+/*   Updated: 2021/09/29 16:49:50 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 #include "error.h"
 
+/*
+** Checking if tmp is .name or .comment 
+** In case of .name, we need to save it in the header
+** In case of .comment, we need to save it in the header
+** In other case, we need parse it 
+*/
+
 void	read_file(t_asm **core, t_operation **list)
 {
 	char	*line;
 	char	*tmp;
 	(*list) = NULL;
-	(*core)->line_cnt = (*core)->line_cnt;
 
 	line = NULL;
 	while (get_next_line((*core)->source_fd, &line) > 0)
@@ -27,6 +33,7 @@ void	read_file(t_asm **core, t_operation **list)
 		(*core)->line_cnt += 1;
 		while ((*tmp == ' ' || *tmp == '\t') && *tmp != '\0')
 			tmp++;
+		
 		if (ft_strnstr(tmp, NAME_CMD_STRING, ft_strlen(NAME_CMD_STRING)))
 		{
 
