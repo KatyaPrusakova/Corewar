@@ -3,16 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mlink <mlink@student.42.fr>                +#+  +:+       +#+         #
+#    By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/15 12:46:08 by mlink             #+#    #+#              #
-#    Updated: 2021/09/25 18:59:21 by mlink            ###   ########.fr        #
+#    Updated: 2021/10/03 20:43:17 by katyaprusak      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = asm
 
-SRC = main.c error.c name_comment.c is_hex.c read_file.c reduce_space.c init.c label_op.c get_arg.c
+SRC = main.c error.c name_comment.c is_hex.c read_file.c reduce_space.c \
+init.c label_op.c get_arg.c print.c
 
 SRC_DIR = src/asm
 OBJ_DIR = objects

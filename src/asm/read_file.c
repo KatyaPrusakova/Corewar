@@ -6,7 +6,7 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 18:37:35 by mlink             #+#    #+#             */
-/*   Updated: 2021/09/29 16:49:50 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2021/10/03 20:53:44 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,6 @@ void	read_file(t_asm **core, t_operation **list)
 			lex_parser(core, list, line);
 		free(line);
 	}
+	print_struct(list);
 	// do_checks(core, list);
 }

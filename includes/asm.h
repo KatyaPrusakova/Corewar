@@ -6,7 +6,7 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 13:11:15 by mlink             #+#    #+#             */
-/*   Updated: 2021/09/29 16:13:52 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2021/10/03 20:42:35 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,14 @@ int				is_hex(char *argum);
 int				ft_chrpos(char *str, char c);
 
 void		read_file(t_asm **core, t_operation **list);
-char	*reformat(char *line);
+char		*reformat(char *line);
 void		init_asm(char *filename, t_asm **core);
 int				list_append(t_operation **head);
 void		save_label_op(t_operation **list, t_operation *new, char *line, int *i);
 void		get_args(t_operation *new, char *line);
-void	lex_parser(t_asm **core, t_operation **list, char *line);
+void		lex_parser(t_asm **core, t_operation **list, char *line);
+
+
+
+void        print_struct(t_operation **list);
 #endif
