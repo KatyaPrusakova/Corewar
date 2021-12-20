@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksuomala <ksuomala@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/14 13:05:00 by ksuomala          #+#    #+#             */
-/*   Updated: 2020/07/14 20:57:42 by ksuomala         ###   ########.fr       */
+/*   Created: 2021/12/20 00:14:50 by katyaprusak       #+#    #+#             */
+/*   Updated: 2021/12/20 00:14:57 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

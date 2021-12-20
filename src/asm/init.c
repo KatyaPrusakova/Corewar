@@ -6,7 +6,7 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 18:47:28 by mlink             #+#    #+#             */
-/*   Updated: 2021/09/29 17:03:10 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2021/12/20 04:19:33 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void		init_asm(char *filename, t_asm **core)
 	if (((*core)->source_fd = open(filename, O_RDONLY)) < 0)
 		ft_error(ERR_OPEN);
 	(*core)->byte_size = 0;
-	(*core)->line_cnt = 0;
+	(*core)->line_pos = 0;
 	(*core)->champ_name = NULL;
 	(*core)->champ_comment = NULL;
 }

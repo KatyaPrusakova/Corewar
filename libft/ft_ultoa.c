@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ultoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mlink <mlink@student.42.fr>                +#+  +:+       +#+        */
+/*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 18:30:51 by mlink             #+#    #+#             */
-/*   Updated: 2021/09/25 18:30:55 by mlink            ###   ########.fr       */
+/*   Updated: 2021/12/20 00:03:27 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 static short	ft_ulonglen(unsigned long n)
 {
-	size_t cnt;
+	size_t i;
 
-	cnt = (n <= 0 ? 1 : 0);
+	i = (n <= 0 ? 1 : 0);
 	while (n != 0)
 	{
 		n = n / 10;
-		cnt = cnt + 1;
+		i = i + 1;
 	}
-	return (cnt);
+	return (i);
 }
 
 char			*ft_ultoa(unsigned long n)

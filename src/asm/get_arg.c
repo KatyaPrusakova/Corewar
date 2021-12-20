@@ -6,7 +6,7 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 18:57:30 by mlink             #+#    #+#             */
-/*   Updated: 2021/09/27 09:07:19 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2021/12/20 04:19:53 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static unsigned long	ft_pow(int number, int power)
 	return (total);
 }
 
-static char			*x_to_deci(char *argum)
+char			*x_to_deci(char *argum)
 {
 	unsigned long	hex;
 	int				len;
@@ -72,14 +72,14 @@ static char			*x_to_deci(char *argum)
 	return (ft_ultoa(hex));
 }
 
-static void		get_hex(t_operation *new, char *line, int cnt)
+static void		get_hex(t_operation *new, char *line, int i)
 {
 	char	*temp;
 	char	*hex;
 
 	temp = x_to_deci(line);
 	hex = ft_strjoin("%", temp);
-	new->arg[cnt] = ft_strdup(hex);
+	new->arg[i] = ft_strdup(hex);
 	free(temp);
 	free(hex);
 }
@@ -87,23 +87,23 @@ static void		get_hex(t_operation *new, char *line, int cnt)
 void		get_args(t_operation *new, char *line)
 {
 	int		i;
-	int		cnt;
+	int		j;
 
 	i = 0;
-	cnt = 0;
+	j = 0;
 	while (line[i])
 	{
 		if (line[i] == SEPARATOR_CHAR)
 		{
-			if (cnt > 2)
+			if (j > 2)
 				ft_error_with_line(ERR_ARG, line);
 			line[i] = '\0';
 			if (is_hex(line))
-				get_hex(new, line, cnt);
+				get_hex(new, line, j);
 			else
-				new->arg[cnt] = ft_strdup(line);
+				new->arg[j] = ft_strdup(line);
 			line = line + i + 1;
-			cnt += 1;
+			j += 1;
 			i = -1;
 		}
 		i += 1;

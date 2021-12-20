@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ksuomala <ksuomala@student.hive.fi>        +#+  +:+       +#+         #
+#    By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/09 11:51:40 by ksuomala          #+#    #+#              #
-#    Updated: 2021/05/25 17:46:20 by ksuomala         ###   ########.fr        #
+#    Updated: 2021/12/05 17:19:16 by katyaprusak      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ $(OBJS): $(OBJ_DIR) $(addprefix $(SRCS_DIR), $(SRCS))
 	@make libft.a -C $(LIB_DIR)
 	@cp $(LIB_DIR)$(LIB) $(NAME)
 #	@cp $(LIB_DIR)libft.h includes/
-	$(CC) $(addprefix $(SRCS_DIR), $(SRCS)) $(INCL)
+	@$(CC) $(addprefix $(SRCS_DIR), $(SRCS)) $(INCL)
 	@mv $(SRCS:.c=.o) $(OBJ_DIR)
 
 $(OBJ_DIR):

@@ -6,7 +6,7 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 18:37:35 by mlink             #+#    #+#             */
-/*   Updated: 2021/10/03 20:53:44 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2021/12/20 04:09:40 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,11 @@ void	read_file(t_asm **core, t_operation **list)
 	while (get_next_line((*core)->source_fd, &line) > 0)
 	{
 		tmp = line;
-		(*core)->line_cnt += 1;
+		(*core)->line_pos += 1;
 		while ((*tmp == ' ' || *tmp == '\t') && *tmp != '\0')
 			tmp++;
-		
 		if (ft_strnstr(tmp, NAME_CMD_STRING, ft_strlen(NAME_CMD_STRING)))
 		{
-
 			((*core)->champ_name) ? ft_error(ERR_MULT_NAME) : 0;
 			(*core)->champ_name = save_name_comment(core, line);
 		}
@@ -50,6 +48,7 @@ void	read_file(t_asm **core, t_operation **list)
 			lex_parser(core, list, line);
 		free(line);
 	}
+	// delete print
 	print_struct(list);
-	// do_checks(core, list);
+	validate_input(core, list);
 }

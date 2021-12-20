@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   op.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mlink <mlink@student.42.fr>                +#+  +:+       +#+        */
+/*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 14:14:38 by mlink             #+#    #+#             */
-/*   Updated: 2021/09/25 17:32:19 by mlink            ###   ########.fr       */
+/*   Updated: 2021/12/05 16:48:31 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@
 // # define T_IND					4
 // # define T_LAB					8
 
-// # define PROG_NAME_LENGTH	(128)
-// # define COMMENT_LENGTH		(2048)
+# define NAME_LENGTH	    128
+# define COMMENT_LENGTH		2048
 // # define COREWAR_EXEC_MAGIC	0xea83f3
 
 // typedef struct		s_header

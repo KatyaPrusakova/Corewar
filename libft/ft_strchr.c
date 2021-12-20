@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksuomala <ksuomala@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/11 11:25:39 by ksuomala          #+#    #+#             */
-/*   Updated: 2021/05/25 14:17:04 by ksuomala         ###   ########.fr       */
+/*   Updated: 2021/12/05 17:28:50 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ char	*ft_strchr(const char *s, int c)
 	}
 	if (s[i] == c)
 		return ((char *)&s[i]);
-	else
-		return (NULL);
+
+	return (NULL);
 }

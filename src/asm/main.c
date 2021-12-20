@@ -6,7 +6,7 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 13:10:31 by mlink             #+#    #+#             */
-/*   Updated: 2021/10/03 20:53:03 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2021/12/20 04:28:42 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void		get_label_op(t_asm **core, t_operation **list, char *line)
 	new = *list;
 	while (new->next)
 		new = new->next;
-	new->line = (*core)->line_cnt;
+	new->line = (*core)->line_pos;
 	while (line[i])
 	{
 		if (line[i] == SEPARATOR_CHAR)
@@ -77,6 +77,7 @@ void	lex_parser(t_asm **core, t_operation **list, char *line)
 	}
 	
 	reform = reformat(line);
+	// printf("reform %s \n", reform);
 	list_append(list);
 	get_label_op(core, list, reform);
 	free(reform);
@@ -94,7 +95,7 @@ int		main(int argc, char **argv)
 	init_asm(argv[1], &core);
 	list = NULL;
 	read_file(&core, &list);
-	// write_champion(core, list);
+	compile_to_bytecode(&core, list);
 	// free_list(list);
 	// clear_t_asm((void *)core);
 	return (0);

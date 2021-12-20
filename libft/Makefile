@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mlink <mlink@student.42.fr>                +#+  +:+       +#+         #
+#    By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/09 11:51:40 by ksuomala          #+#    #+#              #
-#    Updated: 2021/09/25 18:31:24 by mlink            ###   ########.fr        #
+#    Updated: 2021/12/05 17:15:19 by katyaprusak      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,14 +58,14 @@ PRINTF = ft_printf/libftprintf.a
 all: $(PRINTF)
 
 $(PRINTF): $(NAME) ft_printf/srcs/*.c
-	make -C ft_printf/
+	@make -C ft_printf/
 	cp $(PRINTF) $(NAME)
 
 $(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+	@ar rcs $(NAME) $(OBJS)
 
 $(OBJS): $(SRCS)
-	$(CC) $(SRCS) $(INCL)
+	@$(CC) $(SRCS) $(INCL)
 	echo "Compiled!"
 
 clean:
