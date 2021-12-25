@@ -6,20 +6,22 @@
 #    By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/15 12:46:08 by mlink             #+#    #+#              #
-#    Updated: 2021/12/20 04:38:48 by katyaprusak      ###   ########.fr        #
+#    Updated: 2021/12/25 01:52:41 by katyaprusak      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = asm
 
-SRC = main.c error.c name_comment.c is_hex.c read_file.c reduce_space.c \
-init.c label_op.c get_arg.c print.c \
-validation.c validation_utils.c validation_labels.c validation_special_args.c byte_size.c \
+SRC = main.c \
+print.c \
+utils/error.c utils/free.c utils/init.c utils/is_hex.c \
+parse/get_arg.c parse/label_op.c parse/name_comment.c parse/read_file.c parse/validation_special_args.c \
+parse/validation.c parse/validation_labels.c parse/validation_utils.c parse/reduce_space.c \
+compile/byte_size.c compile/compile.c \
 compile/compile_to_bytecode.c \
-free/free.c \
 
 
-SRC_DIR = src/asm
+SRC_DIR = src
 OBJ_DIR = objects
 SRCC = $(addprefix $(SRC_DIR)/, $(SRC))
 

@@ -6,7 +6,7 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 13:11:15 by mlink             #+#    #+#             */
-/*   Updated: 2021/12/20 04:31:56 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2021/12/25 01:57:37 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,18 +50,17 @@ typedef struct			s_operation
 {
 	char				*label;
 	char				*op_name;
-	// int					op_code;
+	int					op_code; // used during validation, check_further function
 	char				*arg[3];
-	// int					argtypes[3];
+	int					argtypes[3]; // used during validation, check_further function 
 	int					op_size; 
 	int					t_dir_size;
-	// int					arg_type_code;
+	int					arg_type_code; // used during validation, check_further function
 	int					position;
 	int					label_pos[3]; // storing position of the label (identified after ":") 
 	int					line;//
 	struct s_operation	*next;
 }						t_operation;
-
 
 void		ft_error(char *str);
 void		ft_error_whit_help(char *str);
@@ -73,10 +72,10 @@ char		*save_name_comment(t_asm **core, char *line);
 int				is_hex(char *argum);
 
 
-void		read_file(t_asm **core, t_operation **list);
+void		read_validate_file(t_asm **core, t_operation **list);
 char		*reformat(char *line);
 void		init_asm(char *filename, t_asm **core);
-int				list_append(t_operation **head);
+int			list_append(t_operation **head);
 void		save_label_op(t_operation **list, t_operation *new, char *line, int *i);
 void		get_args(t_operation *new, char *line);
 void		lex_parser(t_asm **core, t_operation **list, char *line);
@@ -101,6 +100,9 @@ char		*x_to_deci(char *argum);
 // compile
 
 void	compile_to_bytecode(t_asm **core, t_operation *op);
+void	write_magic_number(int fd);
 
+// free
+void	free_list(t_operation *list);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 18:51:18 by mlink             #+#    #+#             */
-/*   Updated: 2021/10/03 20:46:27 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2021/12/25 00:59:23 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <stdio.h>
 
 /*
-	
+** Character validation 	
 */
 
 static void	check_label_chars(char *label)
@@ -32,8 +32,9 @@ static void	check_label_chars(char *label)
 }
 
 /*
-
+** Character validation 
 */
+
 static void		check_dup_labels(t_operation **list, char *label)
 {
 	t_operation *current;

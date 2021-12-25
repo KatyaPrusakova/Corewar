@@ -6,7 +6,7 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 18:37:35 by mlink             #+#    #+#             */
-/*   Updated: 2021/12/20 04:09:40 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2021/12/25 01:23:11 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 ** In other case, we need parse it 
 */
 
-void	read_file(t_asm **core, t_operation **list)
+void	read_validate_file(t_asm **core, t_operation **list)
 {
 	char	*line;
 	char	*tmp;

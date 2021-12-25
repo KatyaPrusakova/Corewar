@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reduce_space.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mlink <mlink@student.42.fr>                +#+  +:+       +#+        */
+/*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 18:41:34 by mlink             #+#    #+#             */
-/*   Updated: 2021/09/25 18:46:43 by mlink            ###   ########.fr       */
+/*   Updated: 2021/12/25 00:55:46 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ static char	*reduce_whitespace(char *line, char *reform, int *i, int *pos)
 			skip_space(line, reform, i, pos);
 		*i += 1;
 	}
-	(reform[*pos - 1] == ' ') ? *pos -= 1 : 0;
+	if (reform[*pos - 1] == ' ')
+		*pos -= 1;
 	return (reform);
 }
 

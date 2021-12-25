@@ -6,7 +6,7 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 14:14:38 by mlink             #+#    #+#             */
-/*   Updated: 2021/12/05 16:48:31 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2021/12/25 01:58:52 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,9 @@
 
 # define NAME_LENGTH	    128
 # define COMMENT_LENGTH		2048
-// # define COREWAR_EXEC_MAGIC	0xea83f3
+# define COREWAR_EXEC_MAGIC	0xea83f3
+
+
 
 // typedef struct		s_header
 // {
