@@ -6,7 +6,7 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 13:11:15 by mlink             #+#    #+#             */
-/*   Updated: 2021/12/28 19:52:16 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2021/12/29 13:27:48 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,12 @@ typedef struct			s_operation
    ((ldata & 0x0000FF00) << 8) | \
    ((ldata & 0x00FF0000) >> 8) | \
    ((ldata & 0xFF000000) >> 24))
-   
+
+#define 	SwapByte2(ldata) \
+	(((ldata & 0x00FF) << 8) | \
+	((ldata & 0xFF00) >> 8))
+
+
 void		ft_error(char *str);
 void		ft_error_whit_help(char *str);
 void		print_help();

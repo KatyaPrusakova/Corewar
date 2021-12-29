@@ -6,7 +6,7 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 13:10:31 by mlink             #+#    #+#             */
-/*   Updated: 2021/12/28 18:23:15 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2021/12/29 13:29:57 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,19 @@
 
 void	check_operation(t_operation *operation, t_asm **core)
 {
-	int cnt;
+	int i;
 
-	cnt = 0;
-	while (cnt < 16)
+	i = 0;
+	while (i < 16)
 	{
-		if (ft_strequ(operation->op_name, g_oplist[cnt].opname))
+		if (ft_strequ(operation->op_name, g_oplist[i].opname))
 		{
-			validate_line(operation, g_oplist[cnt], core);
+			validate_line(operation, g_oplist[i], core);
 			break ;
 		}
-		cnt += 1;
+		i += 1;
 	}
-	if (cnt == 16)
+	if (i == 16)
 	{
 		printf("Invalid instruction: \"%s\" on line %d\n", \
 					operation->op_name, (*core)->line_pos);

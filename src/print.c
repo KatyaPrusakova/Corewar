@@ -6,15 +6,12 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/03 20:37:25 by katyaprusak       #+#    #+#             */
-/*   Updated: 2021/12/05 17:10:58 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2021/12/29 13:24:56 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 #include "error.h"
-#include "stdio.h" //remove
-
-
 
 void        print_struct(t_operation **list)
 {

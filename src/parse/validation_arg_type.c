@@ -6,27 +6,11 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/28 18:20:45 by katyaprusak       #+#    #+#             */
-/*   Updated: 2021/12/28 18:28:52 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2021/12/29 13:34:56 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
-
-static int				ft_chrpos(char *str, char c)
-{
-	int i;
-
-	i = 0;
-	if (!str)
-		return (-1);
-	while (str[i])
-	{
-		if (str[i] == c)
-			return (i);
-		i = i + 1;
-	}
-	return (-1);
-}
 
 int		is_special(char *arg, int func)
 {
@@ -39,7 +23,7 @@ int		is_special(char *arg, int func)
 		return (1);
 	else if (func)
 		pos = 1;
-	if (ft_chrpos(arg, '+') > pos || ft_chrpos(arg, '-') > pos)
+	if (ft_str_char(arg, '+') > pos || ft_str_char(arg, '-') > pos)
 		return (1);
 	else if (is_hex(arg))
 		return (1);
@@ -141,18 +125,11 @@ void	validate_line(t_operation *operation, t_oplist ref, t_asm **core)
 		if ((ret | ref.arg_type[i]) == ref.arg_type[i] && ret != 0)
 			operation->argtypes[i] = ret;
 		else
-		{
-			printf("Invalid argent: \"%s\" on line %d\n", \
-						operation->arg[i], (*core)->line_pos);
 			ft_error("Wrong argent type!");
-		}
 		i += 1;
 	}
 	if (i < 3 && operation->arg[i])
-	{
-		printf("Invalid argents on line: %d\n", (*core)->line_pos);
 		ft_error("Wrong argent number!");
-	}
 	operation->arg_type_code = ref.arg_type_code;
 	operation->op_code = ref.opcode;
 }

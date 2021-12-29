@@ -6,7 +6,7 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 01:08:44 by katyaprusak       #+#    #+#             */
-/*   Updated: 2021/12/28 19:45:46 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2021/12/29 13:30:29 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,22 +52,22 @@ void	write_exec_size(t_asm **core, int fd)
 
 void	write_champ_name(t_asm **core, int fd)
 {
-	int		cnt;
+	int		i;
 	int		zero;
 	char	*str;
 
-	cnt = 0;
+	i = 0;
 	zero = 0;
 	str = (*core)->champ_name;
-	while (str[cnt] != '\0' && cnt < NAME_LENGTH)
+	while (str[i] != '\0' && i < NAME_LENGTH)
 	{
-		write(fd, &str[cnt], 1);
-		cnt += 1;
+		write(fd, &str[i], 1);
+		i += 1;
 	}
-	while (cnt < NAME_LENGTH)
+	while (i < NAME_LENGTH)
 	{
 		write(fd, &zero, 1);
-		cnt += 1;
+		i += 1;
 	}
 }
 
@@ -77,21 +77,21 @@ void	write_champ_name(t_asm **core, int fd)
 
 void	write_champ_comment(t_asm **core, int fd)
 {
-	int		cnt;
+	int		i;
 	int		zero;
 	char	*str;
 
-	cnt = 0;
+	i = 0;
 	zero = 0;
 	str = (*core)->champ_comment;
-	while (str[cnt] != '\0' && cnt < COMMENT_LENGTH)
+	while (str[i] != '\0' && i < COMMENT_LENGTH)
 	{
-		write(fd, &str[cnt], 1);
-		cnt += 1;
+		write(fd, &str[i], 1);
+		i += 1;
 	}
-	while (cnt < COMMENT_LENGTH)
+	while (i < COMMENT_LENGTH)
 	{
 		write(fd, &zero, 1);
-		cnt += 1;
+		i += 1;
 	}
 }

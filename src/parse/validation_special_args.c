@@ -6,28 +6,11 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 04:13:03 by katyaprusak       #+#    #+#             */
-/*   Updated: 2021/12/25 00:38:39 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2021/12/29 13:16:51 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
-
-
-static int				ft_chrpos(char *str, char c)
-{
-	int i;
-
-	i = 0;
-	if (!str)
-		return (-1);
-	while (str[i])
-	{
-		if (str[i] == c)
-			return (i);
-		i = i + 1;
-	}
-	return (-1);
-}
 
 int	get_next_number(char *label, int i)
 {
@@ -38,7 +21,7 @@ int	get_next_number(char *label, int i)
 	if (label[0] == '0' && (label[1] == 'x' || label[1] == 'X'))
 	{
 		i = 2;
-		while (ft_chrpos(hexmask, label[i]) >= 0)
+		while (ft_str_char(hexmask, label[i]) >= 0)
 			i = i + 1;
 		c = label[i];
 		label[i] = '\0';
@@ -143,8 +126,8 @@ void		get_special_args(t_operation **head)
 			// delete
 			// printf("finder->arg[i][0]: %c, pos: %d\n", tmp->arg[i][0], pos);
 			
-			if ((ft_chrpos(tmp->arg[i], '+') > pos) ||
-				(ft_chrpos(tmp->arg[i], '-') > pos))
+			if ((ft_str_char(tmp->arg[i], '+') > pos) ||
+				(ft_str_char(tmp->arg[i], '-') > pos))
 			{
 				total = arg_math(head, tmp, tmp->arg[i]);
 				assign_specials(tmp, i, total);

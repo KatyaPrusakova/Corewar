@@ -6,7 +6,7 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 14:42:45 by katyaprusak       #+#    #+#             */
-/*   Updated: 2021/12/20 04:13:19 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2021/12/29 13:16:52 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,23 +47,6 @@ void	check_lastline(int source_fd)
 	free(last);
 }
 
-int				ft_chrpos(char *str, char c)
-{
-	int i;
-
-	i = 0;
-	if (!str)
-		return (-1);
-	while (str[i])
-	{
-		if (str[i] == c)
-			return (i);
-		i = i + 1;
-	}
-	return (-1);
-}
-
-
 void	match_labels(t_operation **head, int i, int pos, int test)
 {
 	t_operation *finder;
@@ -79,8 +62,8 @@ void	match_labels(t_operation **head, int i, int pos, int test)
             printf("match_labels %s\n", finder->arg[i]);
 			(finder->arg[i][0] == DIRECT_CHAR) ? (pos = 1) :
 			(pos = 0);
-			if (ft_chrpos(finder->arg[i], '+') > pos ||
-				ft_chrpos(finder->arg[i], '-') > pos)
+			if (ft_str_char(finder->arg[i], '+') > pos ||
+				ft_str_char(finder->arg[i], '-') > pos)
 				test = special_arg_check(finder->arg[i], head, finder->line);
 			else
 			{

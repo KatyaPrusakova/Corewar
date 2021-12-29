@@ -6,7 +6,7 @@
 #    By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/09 11:51:40 by ksuomala          #+#    #+#              #
-#    Updated: 2021/12/05 17:15:19 by katyaprusak      ###   ########.fr        #
+#    Updated: 2021/12/29 13:19:17 by katyaprusak      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,8 @@ ft_putgrid_int.c\
 ft_free2d_n.c\
 ft_str_isvalid.c\
 ft_isnumeric_str.c \
-ft_strnbrcmp.c
+ft_strnbrcmp.c \
+ft_str_char.c \
 
 CC = gcc -Wall -Wextra -Werror -g -c
 
@@ -66,7 +67,7 @@ $(NAME): $(OBJS)
 
 $(OBJS): $(SRCS)
 	@$(CC) $(SRCS) $(INCL)
-	echo "Compiled!"
+
 
 clean:
 	@rm -f $(OBJS)

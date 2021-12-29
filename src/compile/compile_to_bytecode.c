@@ -6,7 +6,7 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 04:26:12 by katyaprusak       #+#    #+#             */
-/*   Updated: 2021/12/28 19:51:26 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2021/12/29 13:26:15 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	write_headers(t_asm **core)
 
 	x = 0;
 	fd = (*core)->target_fd;
-	printf("target_fd %d\n", (*core)->target_fd);
 	write_magic_number(fd);
 	write_champ_name(core, fd);
 	write(fd, &x, 4);
