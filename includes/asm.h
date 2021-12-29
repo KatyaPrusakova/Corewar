@@ -6,7 +6,7 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 13:11:15 by mlink             #+#    #+#             */
-/*   Updated: 2021/12/25 01:57:37 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2021/12/28 19:52:16 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ typedef struct			s_asm
 {
 	int					source_fd;
 	int					target_fd; // core fd
-	char				*target_file;
-	char				*file;
+
+	char				*file; // target_file
 	char				*champ_name;
 	char				*champ_comment;
 	int					byte_size;
@@ -62,6 +62,12 @@ typedef struct			s_operation
 	struct s_operation	*next;
 }						t_operation;
 
+#define SwapByte4(ldata) \
+   (((ldata & 0x000000FF) << 24) | \
+   ((ldata & 0x0000FF00) << 8) | \
+   ((ldata & 0x00FF0000) >> 8) | \
+   ((ldata & 0xFF000000) >> 24))
+   
 void		ft_error(char *str);
 void		ft_error_whit_help(char *str);
 void		print_help();
@@ -104,5 +110,14 @@ void	write_magic_number(int fd);
 
 // free
 void	free_list(t_operation *list);
+
+
+void	validate_line(t_operation *operation, t_oplist ref, t_asm **core);
+
+void	write_exec_size(t_asm **core, int fd);
+void	write_champ_name(t_asm **core, int fd);
+void	write_champ_comment(t_asm **core, int fd);
+
+void	write_exec_code(int target_fd, t_operation *op);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 04:36:19 by katyaprusak       #+#    #+#             */
-/*   Updated: 2021/12/24 23:48:22 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2021/12/28 18:38:50 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void	clear_t_asm(void *object)
 		free(((t_asm*)object)->champ_name);
 	if (((t_asm*)object)->champ_comment)
 		free(((t_asm*)object)->champ_comment);
-	if (((t_asm*)object)->target_file)
-		free(((t_asm*)object)->target_file);
+	if (((t_asm*)object)->file)
+		free(((t_asm*)object)->file);
 	free(object);
 }
 

@@ -6,7 +6,7 @@
 #    By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/15 12:46:08 by mlink             #+#    #+#              #
-#    Updated: 2021/12/25 01:52:41 by katyaprusak      ###   ########.fr        #
+#    Updated: 2021/12/28 19:53:23 by katyaprusak      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,10 @@ print.c \
 utils/error.c utils/free.c utils/init.c utils/is_hex.c \
 parse/get_arg.c parse/label_op.c parse/name_comment.c parse/read_file.c parse/validation_special_args.c \
 parse/validation.c parse/validation_labels.c parse/validation_utils.c parse/reduce_space.c \
+parse/validation_arg_type.c \
 compile/byte_size.c compile/compile.c \
 compile/compile_to_bytecode.c \
+compile/compile_exec.c \
 
 
 SRC_DIR = src

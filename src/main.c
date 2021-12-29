@@ -6,7 +6,7 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 13:10:31 by mlink             #+#    #+#             */
-/*   Updated: 2021/12/25 02:00:59 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2021/12/28 18:23:15 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,54 +14,6 @@
 #include "error.h"
 
 
-int		check_argument(char *argum, t_asm **core)
-{
-	if (!argum)
-	{
-		printf("Missing instruction on line %d\n", (*core)->line_pos);
-		ft_error("No argument provided!");
-	}
-	// if (check_t_reg(argum) == 1)
-	// 	return (T_REG);
-	// else if (check_t_ind(argum) == 1)
-	// 	return (T_IND);
-	// else if (check_t_dir(argum) == 1)
-	// 	return (T_DIR);
-
-	printf("Invalid instruction: \"%s\" on line %d\n", \
-				argum, (*core)->line_pos);
-	ft_error("Invalid argument provided!");
-	return (0);
-
-}
-
-void	check_further(t_operation *operation, t_oplist ref, t_asm **core)
-{
-	int	i;
-	int	ret;
-
-	i = 0;
-	while (i < ref.arg_cnt)
-	{
-		ret = check_argument(operation->arg[i], core);
-		if ((ret | ref.arg_type[i]) == ref.arg_type[i] && ret != 0)
-			operation->argtypes[i] = ret;
-		else
-		{
-			printf("Invalid argument: \"%s\" on line %d\n", \
-						operation->arg[i], (*core)->line_pos);
-			ft_error("Wrong argument type!");
-		}
-		i += 1;
-	}
-	if (i < 3 && operation->arg[i])
-	{
-		printf("Invalid arguments on line: %d\n", (*core)->line_pos);
-		ft_error("Wrong argument number!");
-	}
-	operation->arg_type_code = ref.arg_type_code;
-	operation->op_code = ref.opcode;
-}
 
 void	check_operation(t_operation *operation, t_asm **core)
 {
@@ -72,7 +24,7 @@ void	check_operation(t_operation *operation, t_asm **core)
 	{
 		if (ft_strequ(operation->op_name, g_oplist[cnt].opname))
 		{
-			check_further(operation, g_oplist[cnt], core);
+			validate_line(operation, g_oplist[cnt], core);
 			break ;
 		}
 		cnt += 1;

@@ -6,7 +6,7 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 18:47:28 by mlink             #+#    #+#             */
-/*   Updated: 2021/12/20 04:19:33 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2021/12/28 18:37:32 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static char	*filename_pars(const char *source, const char *src_type,\
 
 	
 	target = NULL;
-	// check if file ends on .s
+
 	if (ft_str_end(source, src_type))
 	{
 		// test.s -> test
@@ -36,6 +36,8 @@ static char	*filename_pars(const char *source, const char *src_type,\
 		// target = name_of_file.cor
 		free(base);
 	}
+	else
+		ft_error("Error: source file must end with .s");
 	return (target);
 }
 
