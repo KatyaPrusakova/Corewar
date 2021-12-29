@@ -6,7 +6,7 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 17:32:35 by katyaprusak       #+#    #+#             */
-/*   Updated: 2021/12/20 03:26:04 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2021/12/29 18:06:46 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,7 @@ int		check_label(char *label, t_operation **head)
 		}
 		cpy = cpy->next;
 	}
-    // printf("Invalid label: \"%s\" on line %d\n", label, line);
-	// ft_error("Wrong chars in label!");
+
 	return (0);
 }
 

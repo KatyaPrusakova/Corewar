@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksuomala <ksuomala@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/12 12:06:59 by ksuomala          #+#    #+#             */
-/*   Updated: 2021/05/25 15:25:44 by ksuomala         ###   ########.fr       */
+/*   Created: 2021/12/29 13:39:53 by katyaprusak       #+#    #+#             */
+/*   Updated: 2021/12/29 13:39:56 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

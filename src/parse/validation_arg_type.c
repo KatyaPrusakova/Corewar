@@ -6,7 +6,7 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/28 18:20:45 by katyaprusak       #+#    #+#             */
-/*   Updated: 2021/12/29 13:34:56 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2021/12/29 13:37:18 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,18 +95,13 @@ int		is_t_dir(char *arg)
 int		validate_argent(char *arg, t_asm **core)
 {
 	if (!arg)
-	{
-		printf("Missing instruction on line %d\n", (*core)->line_pos);
 		ft_error("No argent provided!");
-	}
 	if (is_t_reg(arg))
 		return (T_REG);
 	else if (is_t_ind(arg))
 		return (T_IND);
 	else if (is_t_dir(arg))
 		return (T_DIR);
-	printf("Invalid instruction: \"%s\" on line %d\n", \
-				arg, (*core)->line_pos);
 	ft_error("Invalid argent provided!");
 	return (0);
 
