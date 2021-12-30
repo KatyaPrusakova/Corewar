@@ -6,7 +6,7 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 00:37:57 by katyaprusak       #+#    #+#             */
-/*   Updated: 2021/12/25 00:05:21 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2021/12/29 19:09:28 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,6 @@ int		find_position(t_operation **list, t_operation *cur, char *arg)
 		if (ft_strequ(find->label, arg)) 
         {
             printf("find->label %s %s\n", find->label, arg);
-            
 			return (find->position - cur->position);
         }
 		find = find->next;

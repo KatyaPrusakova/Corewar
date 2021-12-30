@@ -6,7 +6,7 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 18:37:35 by mlink             #+#    #+#             */
-/*   Updated: 2021/12/25 01:23:11 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2021/12/29 19:07:17 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,8 @@
 
 /*
 ** Checking if tmp is .name or .comment 
-** In case of .name, we need to save it in the header
-** In case of .comment, we need to save it in the header
-** In other case, we need parse it 
+** In case of .name and .comment we save it in the header
+** In other case, we need to parse it 
 */
 
 void	read_validate_file(t_asm **core, t_operation **list)

@@ -6,7 +6,7 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 13:11:15 by mlink             #+#    #+#             */
-/*   Updated: 2021/12/29 13:27:48 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2021/12/29 19:44:11 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ void	write_magic_number(int fd);
 void	free_list(t_operation *list);
 
 
-void	validate_line(t_operation *operation, t_oplist ref, t_asm **core);
+void	validate_line(t_operation *operation, t_oplist ref);
 
 void	write_exec_size(t_asm **core, int fd);
 void	write_champ_name(t_asm **core, int fd);

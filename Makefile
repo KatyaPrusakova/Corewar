@@ -6,7 +6,7 @@
 #    By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/15 12:46:08 by mlink             #+#    #+#              #
-#    Updated: 2021/12/28 19:53:23 by katyaprusak      ###   ########.fr        #
+#    Updated: 2021/12/29 20:51:43 by katyaprusak      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,12 +43,12 @@ all: $(NAME)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)%.c
 	@/bin/mkdir -p $(OBJ_DIR)
-	@gcc $(FLAGS) -c $(LIBFT_HEADER) $(HEADER) $< -o $@
+	@gcc $(FLAGS) -c -g $(LIBFT_HEADER) $(HEADER) $< -o $@
 
 $(NAME): $(SRCC)
 	@echo "	$(GREEN)<<$(RESET)$(YELLOW)$(NAME) is compiling...$(GREEN)>>$(RESET)"
 	@make -C libft
-	@gcc $(FLAGS) -o $@ $^ $(LIBFT_HEADER) $(HEADER) $(LIBFT) $(BONUS)
+	@gcc $(FLAGS) -g -o $@ $^ $(LIBFT_HEADER) $(HEADER) $(LIBFT) $(BONUS)
 	@echo "	$(GREEN)<<$(RESET)$(BOLD_BLUE)$(NAME) is ready to use$(GREEN)>>$(RESET)"
 
 clean:

@@ -6,7 +6,7 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/28 18:20:45 by katyaprusak       #+#    #+#             */
-/*   Updated: 2021/12/29 13:37:18 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2021/12/29 19:43:58 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ int		is_t_dir(char *arg)
 	return (0);
 }
 
-int		validate_argent(char *arg, t_asm **core)
+int		validate_argent(char *arg)
 {
 	if (!arg)
 		ft_error("No argent provided!");
@@ -107,7 +107,7 @@ int		validate_argent(char *arg, t_asm **core)
 
 }
 
-void	validate_line(t_operation *operation, t_oplist ref, t_asm **core)
+void	validate_line(t_operation *operation, t_oplist ref)
 {
 	int	i;
 	int	ret;
@@ -116,7 +116,7 @@ void	validate_line(t_operation *operation, t_oplist ref, t_asm **core)
 	
 	while (i < ref.arg_cnt)
 	{
-		ret = validate_argent(operation->arg[i], core);
+		ret = validate_argent(operation->arg[i]);
 		if ((ret | ref.arg_type[i]) == ref.arg_type[i] && ret != 0)
 			operation->argtypes[i] = ret;
 		else

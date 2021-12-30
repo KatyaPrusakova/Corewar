@@ -6,7 +6,7 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 13:10:31 by mlink             #+#    #+#             */
-/*   Updated: 2021/12/29 13:29:57 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2021/12/29 20:49:17 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	check_operation(t_operation *operation, t_asm **core)
 	{
 		if (ft_strequ(operation->op_name, g_oplist[i].opname))
 		{
-			validate_line(operation, g_oplist[i], core);
+			validate_line(operation, g_oplist[i]);
 			break ;
 		}
 		i += 1;
