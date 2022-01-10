@@ -6,7 +6,7 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 13:10:31 by mlink             #+#    #+#             */
-/*   Updated: 2021/12/29 21:08:32 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2022/01/10 08:11:47 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,18 +109,22 @@ void	lex_parser(t_asm **core, t_operation **list, char *line)
 
 // int		main(int argc, char **argv)
 int		main(void)
-{
-	t_asm		*core;
-	t_operation	*list;
+	*core;
+	on	*list;
 
-	core = NULL;
-	// if (argc != 2 && argv)
-	// 	print_help();
-	init_asm("test.s", &core);
-	list = NULL;
-	read_validate_file(&core, &list);
-	compile_to_bytecode(&core, list);
-	free_list(list);
+ULL;
+rgc != 2 && argv)
+t_help();
+	init_asm("test.s
+	
+	
+	
+	
+	", &core);NULL;lidate_file(&core, &list);
+	_to_bytecode(&c
+	
+	
+	ore, listlist(list);
 	// clear_t_asm((void *)core);
 	return (0);
 }
