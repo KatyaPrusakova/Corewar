@@ -6,7 +6,7 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 14:42:45 by katyaprusak       #+#    #+#             */
-/*   Updated: 2021/12/29 13:16:52 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2021/12/30 00:13:11 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void	check_lastline(int source_fd)
 		i -= 1;
 	}
 	i = (i + 2) * -1;
-	printf("i: %d\n", i);
 	if (!(last = (char*)malloc(sizeof(char) * i + 1)))
 		ft_error("Malloc error");
 	read(source_fd, last, i);

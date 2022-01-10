@@ -6,7 +6,7 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 18:51:18 by mlink             #+#    #+#             */
-/*   Updated: 2021/12/25 00:59:23 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2021/12/30 00:04:18 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,9 @@ static void	save_label(t_operation **list, t_operation *new, char *line)
 		new = new->next;
 		new->line = pos;
 	}
+	check_label_chars(line);
+	check_dup_labels(list, line);
 	new->label = ft_strdup(line);
-	check_label_chars(new->label);
-	check_dup_labels(list, new->label);
 }
 
 void		save_label_op(t_operation **list, t_operation *new, \

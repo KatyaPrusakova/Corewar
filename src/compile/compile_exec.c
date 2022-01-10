@@ -6,7 +6,7 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/28 19:48:41 by katyaprusak       #+#    #+#             */
-/*   Updated: 2021/12/29 13:30:11 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2021/12/30 00:26:27 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int		get_arg_code(t_operation *operation)
 
 	i = 0;
 	shift = 6;
-	ret = 0b00000000;
+	ret = 0b00000000; // 128
 	while (i < 3)
 	{
 		if (operation->argtypes[i] == T_REG)
