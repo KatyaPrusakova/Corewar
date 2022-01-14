@@ -6,7 +6,7 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 13:10:31 by mlink             #+#    #+#             */
-/*   Updated: 2021/12/29 20:49:17 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2022/01/12 20:07:23 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,6 @@ int		main(int argc, char **argv)
 	read_validate_file(&core, &list);
 	compile_to_bytecode(&core, list);
 	free_list(list);
-	// clear_t_asm((void *)core);
+	free_t_asm_struct((void *)core);
 	return (0);
 }

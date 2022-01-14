@@ -1,9 +1,5 @@
-.name "Takeover"
-.comment "Yup, it's pretty hostile"
+.name "ldi"
+.comment "ldi: ind value is too big and two valid registers"
 
-start:								#attack sequence
-		ld %57672193, r2			#03700201 == st, r2, 2...
-	st r8, -511					#write lfork in case of infiltrator
-		ld %0, r15				#carry = 1
-loop:
-	sti r1, %:live, %1
+ldi 94837589436749859842,r1,r2
+

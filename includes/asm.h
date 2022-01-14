@@ -6,7 +6,7 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 13:11:15 by mlink             #+#    #+#             */
-/*   Updated: 2021/12/29 19:44:11 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2022/01/12 20:09:26 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,7 @@ void	write_magic_number(int fd);
 
 // free
 void	free_list(t_operation *list);
+void	free_t_asm_struct(void *object);
 
 
 void	validate_line(t_operation *operation, t_oplist ref);

@@ -6,13 +6,13 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 04:36:19 by katyaprusak       #+#    #+#             */
-/*   Updated: 2021/12/28 18:38:50 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2022/01/12 20:06:50 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 
-void	clear_t_asm(void *object)
+void	free_t_asm_struct(void *object)
 {
 	if (((t_asm*)object)->source_fd > 2)
 		if (close(((t_asm*)object)->source_fd) < 0)
