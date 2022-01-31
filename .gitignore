@@ -1,5 +1,4 @@
 .vscode
-asm.*
 
 # Prerequisites
 *.d
@@ -55,4 +54,3 @@ Mkfile.old
 dkms.conf
 etc
 .DS_Store
-asm
