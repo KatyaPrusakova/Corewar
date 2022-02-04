@@ -6,7 +6,7 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 03:54:08 by katyaprusak       #+#    #+#             */
-/*   Updated: 2021/12/29 13:16:51 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2022/02/04 14:42:02 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@ void	get_label_positions(t_operation **list)
 		{
 			while (temp->arg[i] && i < 3)
 			{
-				if ((pos = ft_str_char(temp->arg[i], LABEL_CHAR)) >= 0) {
-                    
+				pos = ft_str_char(temp->arg[i], LABEL_CHAR);
+				if (pos >= 0)
+				{
 					temp->label_pos[i] = find_position(list, temp, \
 					temp->arg[i] + pos + 1);
-                }
-                // printf("get_label_positions temp->arg: %s %s %s\n ", temp->arg[0],  temp->arg[1],  temp->arg[2]);
+				}
 				i = i + 1;
 			}
 		}

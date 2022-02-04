@@ -6,7 +6,7 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 00:37:57 by katyaprusak       #+#    #+#             */
-/*   Updated: 2021/12/29 19:09:28 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2022/02/04 14:26:53 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 
 static int	count_bytes(t_operation *temp, int j)
 {
-	int bytes;
-	int i;
+	int	bytes;
+	int	i;
 
 	i = 0;
 	bytes = 1;
@@ -35,7 +35,6 @@ static int	count_bytes(t_operation *temp, int j)
 	}
 	if (g_oplist[j].arg_type_code)
 		bytes = bytes + 1;
-    printf("bytes: %d\n", bytes);
 	return (bytes);
 }
 
@@ -49,7 +48,6 @@ int	get_byte_size(t_operation **list, t_asm **core)
 	t_operation	*temp;
 
 	temp = *list;
-    
 	while (temp)
 	{
 		if (temp->op_name)
@@ -59,7 +57,7 @@ int	get_byte_size(t_operation **list, t_asm **core)
 			{
 				if (ft_strequ(temp->op_name, g_oplist[i].opname))
 				{
-                    temp->t_dir_size = g_oplist[i].t_dir_size;
+					temp->t_dir_size = g_oplist[i].t_dir_size;
 					break ;
 				}
 				i += 1;
@@ -74,22 +72,20 @@ int	get_byte_size(t_operation **list, t_asm **core)
 }
 
 /*
-** When label found, go through list to find the position it's pointing to.
+	When label found, go through list to find the position 
+	it's pointing to.
 ** Calculate how many bytes to move forward/backward, if not found, error.
 */
 
-int		find_position(t_operation **list, t_operation *cur, char *arg)
+int	find_position(t_operation **list, t_operation *cur, char *arg)
 {
-	t_operation *find;
+	t_operation	*find;
 
 	find = *list;
 	while (find)
 	{
-		if (ft_strequ(find->label, arg)) 
-        {
-            printf("find->label %s %s\n", find->label, arg);
+		if (ft_strequ(find->label, arg))
 			return (find->position - cur->position);
-        }
 		find = find->next;
 	}
 	return (0);
@@ -109,12 +105,8 @@ int	get_next_label(char *label, t_operation **head, t_operation *cur, int pos)
 	i = pos;
 	while (label[i] && label[i] != '+' && label[i] != '-')
 		i = i + 1;
-    
 	temp = ft_strsub(label, pos, i - 1);
-    // delete
-    printf("get_next_label: %s\n", temp);
 	total = find_position(head, cur, temp);
-    printf("total: %d\n", total);
 	free(temp);
 	return (total);
 }

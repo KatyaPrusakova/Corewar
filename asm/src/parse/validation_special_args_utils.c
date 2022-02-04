@@ -1,32 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print.c                                            :+:      :+:    :+:   */
+/*   validation_special_args_utils.c                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/03 20:37:25 by katyaprusak       #+#    #+#             */
-/*   Updated: 2022/02/04 15:56:44 by katyaprusak      ###   ########.fr       */
+/*   Created: 2022/02/04 14:44:19 by katyaprusak       #+#    #+#             */
+/*   Updated: 2022/02/04 14:45:26 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
-#include "error.h"
 
-void	print_struct(t_operation **list)
+int	get_position(char arg)
 {
-	int			i;
-	t_operation	*new;
-
-	i = 0;
-	new = *list;
-	while (new != NULL)
-	{
-		ft_printf("label  %s\n", new->label);
-		ft_printf("op_name    %s\n", new->op_name);
-		ft_printf("arg |%s| |%s| |%s|\n", new->arg[0], new->arg[1], new->arg[2]);
-		ft_printf("line       %d\n", new->line);
-		ft_printf("______\n");
-		new = new->next;
-	}
+    if (arg == DIRECT_CHAR) {
+        return 1;  
+    }
+    return 0;
 }

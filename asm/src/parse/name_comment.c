@@ -6,13 +6,19 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 16:02:33 by mlink             #+#    #+#             */
-/*   Updated: 2021/09/29 16:56:16 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2022/02/04 17:33:02 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 #include "error.h"
 
+// char	*norm_strjoin_free(char *ret, char *line)
+// {
+// 	ret = ft_strjoin(ret, "\n");
+// 	ret = ft_strjoin(ret, line);
+// 	return (ret);
+// }
 static char	*strjoin_free(char *s1, char *s2)
 {
 	char	*ret;
@@ -33,7 +39,19 @@ static char	*continue_reading(int source_fd)
 	ret = ft_strnew(1);
 	while (get_next_line(source_fd, &line) > 0)
 	{
-		if (ft_strchr(line, '\"'))
+		// if (ft_strchr(line, '\"'))
+		// {
+		// 	flag = 1;
+		// 	ret = norm_strjoin_free(ret, line);
+		// 	// free(line);
+		// 	break ;
+		// }
+		// else
+		// {
+		// 	ret = norm_strjoin_free(ret, line);
+		// 	// free(line);
+		// }
+				if (ft_strchr(line, '\"'))
 		{
 			flag = 1;
 			ret = strjoin_free(ret, "\n");
@@ -78,6 +96,20 @@ static char	*remove_trailing_spaces(char *str)
 	return (ret);
 }
 
+int	validate_name_comment(char *line)
+{
+	int	i;
+
+	i = 0;
+	while (line[i] != '\"')
+	{
+		if (line[i] == '\0')
+			ft_error(ERR_NO_NAME);
+		i += 1;
+	}
+	return (i);
+}
+
 char	*save_name_comment(t_asm **core, char *line)
 {
 	char	*ret;
@@ -85,13 +117,7 @@ char	*save_name_comment(t_asm **core, char *line)
 	int		pos_start;
 	char	*next;
 
-	i = 0;
-	// find champion's name start
-	while (line[i] != '\"')
-	{
-		(line[i] == '\0') ? ft_error(ERR_NO_NAME) : 0;
-		i += 1;
-	}
+	i = validate_name_comment(line);
 	pos_start = i + 1;
 	i += 1;
 	while (line[i] != '\0' && line[i] != '\"')
@@ -100,8 +126,8 @@ char	*save_name_comment(t_asm **core, char *line)
 	{
 		ret = ft_strdup(&line[pos_start]);
 		next = continue_reading((*core)->source_fd);
-		ret = strjoin_free(ret, next);
-		free(next);
+		ret = ft_strjoin(ret, next);
+		//free(next);
 	}
 	else
 		ret = ft_strdup(&line[pos_start]);

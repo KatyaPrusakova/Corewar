@@ -6,7 +6,7 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 18:41:34 by mlink             #+#    #+#             */
-/*   Updated: 2021/12/25 00:55:46 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2022/02/04 17:04:20 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ static char	*reduce_whitespace(char *line, char *reform, int *i, int *pos)
 {
 	while (line[*i])
 	{
-		if (line[*i] == COMMENT_CHAR || line[*i] == ALT_COMMENT_CHAR)
-		{
-			line[*i] = '\0';
-			break ;
-		}
+		// if (line[*i] == COMMENT_CHAR || line[*i] == ALT_COMMENT_CHAR)
+		// {
+		// 	line[*i] = '\0';
+		// 	break ;
+		// }
 		if (line[*i] != ' ' && line[*i] != '\t')
 		{
 			if ((line[*i] == DIRECT_CHAR || line[*i] == '-') && \
@@ -42,7 +42,7 @@ static char	*reduce_whitespace(char *line, char *reform, int *i, int *pos)
 			}
 			reform[*pos] = line[*i];
 			*pos += 1;
-		}
+		} 
 		else
 			skip_space(line, reform, i, pos);
 		*i += 1;
@@ -56,31 +56,49 @@ static char	*final_reformat(char *reform, int *i, int *pos, int separator)
 {
 	char	*final;
 
-	if (!(final = (char*)malloc(sizeof(char) * ft_strlen(reform) + 2)))
+	final = (char *)malloc(sizeof(char) * ft_strlen(reform) + 2);
+	if (!final)
 		ft_error(ERR_MALLOC_STR);
 	while (reform[*pos])
 	{
 		if (reform[*pos] != ' ')
-		{
 			final[*i] = reform[*pos];
-			*i += 1;
-		}
 		else if (reform[*pos] == ' ' && !separator)
 		{
-			(reform[*pos - 1] == LABEL_CHAR) ? (final[*i] = SEPARATOR_CHAR) : 0;
+			if (reform[*pos - 1] == LABEL_CHAR)
+				final[*i] = SEPARATOR_CHAR;
+			final[*i] = 0;
 			if (ft_isalpha(reform[*pos - 1]) && !separator)
 			{
 				final[*i] = SEPARATOR_CHAR;
 				separator = 1;
 			}
-			*i += 1;
 		}
 		*pos += 1;
+		*i += 1;
 	}
 	ft_strdel(&reform);
 	return (final);
 }
 
+
+static int	check_alt_comment(char *line, int *i)
+{
+	int		j;
+
+	j = *i;
+	while (line[j])
+	{
+		if (line[j] == COMMENT_CHAR || line[j] == ALT_COMMENT_CHAR)
+		{
+			line[j] = '\0';
+			*i = j;
+			return (1);
+		}
+	}
+	return (0);
+}
+		
 char	*reformat(char *line)
 {
 	int		i;
@@ -89,9 +107,11 @@ char	*reformat(char *line)
 
 	i = 0;
 	pos = 0;
-	if (!(reform = (char*)malloc(sizeof(char) * ft_strlen(line) + 2)))
+	reform = (char *)malloc(sizeof(char) * ft_strlen(line) + 2);
+	if (!reform)
 		ft_error(ERR_MALLOC_STR);
-	reform = reduce_whitespace(line, reform, &i, &pos);
+	if (!check_alt_comment(line, &i))
+		reform = reduce_whitespace(line, reform, &i, &pos);
 	reform[pos] = '\0';
 	pos = 0;
 	i = 0;

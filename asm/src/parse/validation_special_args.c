@@ -6,7 +6,7 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 04:13:03 by katyaprusak       #+#    #+#             */
-/*   Updated: 2021/12/29 13:16:51 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2022/02/04 14:45:07 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ int	get_next_number(char *label, int i)
 
 void	assign_specials(t_operation *finder, int i, int total)
 {
-    printf("before assign_specials: %s\n", finder->arg[i]);
 	if (finder->arg[i][0] == LABEL_CHAR)
 		finder->label_pos[i] = total;
 	else
@@ -52,7 +51,6 @@ void	assign_specials(t_operation *finder, int i, int total)
 			finder->arg[i] = ft_strjoin("%", ft_ultoa(total));
 		else
 			finder->arg[i] = ft_ultoa(total);
-        printf("after assign_specials: %s\n", finder->arg[i]);
 	}
 }
 
@@ -84,11 +82,8 @@ int	arg_math(t_operation **head, t_operation *cur, char *label)
 	i = 0;
 	sign = 1;
 	total = get_total(head, cur, label);
-	printf("label is LABEL_CHAR: %s %lld\n", label, total);
-    
 	while (label[i])
 	{
-        printf("label char: %c\n", label[i]);
 		(label[i] == '-') ? (sign = -1) : 0;
 		(label[i + 1] == LABEL_CHAR) ? (total +=
 		(sign * get_next_label(label, head, cur, i + 2))) :
@@ -99,16 +94,7 @@ int	arg_math(t_operation **head, t_operation *cur, char *label)
 	return (total);
 }
 
-int         get_position(char arg)
-{
-    if (arg == DIRECT_CHAR) {
-        return 1;  
-    }
-    return 0;
-}
-
-
-void		get_special_args(t_operation **head)
+void	get_special_args(t_operation **head)
 {
 	t_operation	*tmp;
 	int			i;

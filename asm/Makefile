@@ -6,7 +6,7 @@
 #    By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/15 12:46:08 by mlink             #+#    #+#              #
-#    Updated: 2021/12/29 20:51:43 by katyaprusak      ###   ########.fr        #
+#    Updated: 2022/02/04 14:52:15 by katyaprusak      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,9 +15,11 @@ NAME = asm
 SRC = main.c \
 print.c \
 utils/error.c utils/free.c utils/init.c utils/is_hex.c \
-parse/get_arg.c parse/label_op.c parse/name_comment.c parse/read_file.c parse/validation_special_args.c \
+parse/get_arg.c parse/label_op.c parse/name_comment.c parse/read_file.c \
+parse/validation_line.c \
+parse/validation_special_args.c parse/validation_special_args_utils.c\
 parse/validation.c parse/validation_labels.c parse/validation_utils.c parse/reduce_space.c \
-parse/validation_arg_type.c \
+parse/validation_line_arg.c \
 compile/byte_size.c compile/compile.c \
 compile/compile_to_bytecode.c \
 compile/compile_exec.c \
