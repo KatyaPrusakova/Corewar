@@ -6,19 +6,17 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 16:02:33 by mlink             #+#    #+#             */
-/*   Updated: 2021/09/29 16:56:16 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2022/02/04 19:31:10 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 #include "error.h"
 
-static char	*strjoin_free(char *s1, char *s2)
+static	char	*norm_strjoin_free(char *ret, char *line)
 {
-	char	*ret;
-
-	ret = ft_strjoin(s1, s2);
-	free(s1);
+	ret = ft_strjoin(ret, "\n");
+	ret = ft_strjoin(ret, line);
 	return (ret);
 }
 
@@ -36,17 +34,11 @@ static char	*continue_reading(int source_fd)
 		if (ft_strchr(line, '\"'))
 		{
 			flag = 1;
-			ret = strjoin_free(ret, "\n");
-			ret = strjoin_free(ret, line);
-			free(line);
+			ret = norm_strjoin_free(ret, line);
 			break ;
 		}
 		else
-		{
-			ret = strjoin_free(ret, "\n");
-			ret = strjoin_free(ret, line);
-			free(line);
-		}
+			ret = norm_strjoin_free(ret, line);
 	}
 	if (!flag)
 		ft_error(ERR_INC_NAME);
@@ -78,6 +70,20 @@ static char	*remove_trailing_spaces(char *str)
 	return (ret);
 }
 
+int	validate_name_comment(char *line)
+{
+	int	i;
+
+	i = 0;
+	while (line[i] != '\"')
+	{
+		if (line[i] == '\0')
+			ft_error(ERR_NO_NAME);
+		i += 1;
+	}
+	return (i);
+}
+
 char	*save_name_comment(t_asm **core, char *line)
 {
 	char	*ret;
@@ -85,13 +91,7 @@ char	*save_name_comment(t_asm **core, char *line)
 	int		pos_start;
 	char	*next;
 
-	i = 0;
-	// find champion's name start
-	while (line[i] != '\"')
-	{
-		(line[i] == '\0') ? ft_error(ERR_NO_NAME) : 0;
-		i += 1;
-	}
+	i = validate_name_comment(line);
 	pos_start = i + 1;
 	i += 1;
 	while (line[i] != '\0' && line[i] != '\"')
@@ -100,8 +100,7 @@ char	*save_name_comment(t_asm **core, char *line)
 	{
 		ret = ft_strdup(&line[pos_start]);
 		next = continue_reading((*core)->source_fd);
-		ret = strjoin_free(ret, next);
-		free(next);
+		ret = ft_strjoin_free(ret, next);
 	}
 	else
 		ret = ft_strdup(&line[pos_start]);

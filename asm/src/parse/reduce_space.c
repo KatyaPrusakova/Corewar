@@ -6,7 +6,7 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 18:41:34 by mlink             #+#    #+#             */
-/*   Updated: 2022/02/04 19:06:53 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2022/02/04 19:26:06 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,24 +80,6 @@ static char	*final_reformat(char *reform, int *i, int *pos, int separator)
 	ft_strdel(&reform);
 	return (final);
 }
-
-
-// static int	check_alt_comment(char *line, int *i)
-// {
-// 	int		j;
-
-// 	j = *i;
-// 	while (line[j])
-// 	{
-// 		if (line[j] == COMMENT_CHAR || line[j] == ALT_COMMENT_CHAR)
-// 		{
-// 			line[j] = '\0';
-// 			*i = j;
-// 			return (1);
-// 		}
-// 	}
-// 	return (0);
-// }
 		
 char	*reformat(char *line)
 {
@@ -110,7 +92,6 @@ char	*reformat(char *line)
 	reform = (char *)malloc(sizeof(char) * ft_strlen(line) + 2);
 	if (!reform)
 		ft_error(ERR_MALLOC_STR);
-	// if (!check_alt_comment(line, &i))
 	reform = reduce_whitespace(line, reform, &i, &pos);
 	reform[pos] = '\0';
 	pos = 0;
