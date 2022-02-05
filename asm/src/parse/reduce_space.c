@@ -6,7 +6,7 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 18:41:34 by mlink             #+#    #+#             */
-/*   Updated: 2022/02/04 19:26:06 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2022/02/04 19:44:30 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,15 @@ static void	skip_space(char *line, char *reform, int *i, int *pos)
 	*i -= 1;
 }
 
+static int	valid_char(char *line, int *i)
+{
+	if ((line[*i] == DIRECT_CHAR || line[*i] == '-') && \
+				line[*i - 1] != ' ' && line[*i - 1] != '\t' && \
+				line[*i - 1] != SEPARATOR_CHAR)
+		return (1);
+	return (0);
+}
+
 static char	*reduce_whitespace(char *line, char *reform, int *i, int *pos)
 {
 	while (line[*i])
@@ -33,16 +42,14 @@ static char	*reduce_whitespace(char *line, char *reform, int *i, int *pos)
 		}
 		if (line[*i] != ' ' && line[*i] != '\t')
 		{
-			if ((line[*i] == DIRECT_CHAR || line[*i] == '-') && \
-				line[*i - 1] != ' ' && line[*i - 1] != '\t' && \
-				line[*i - 1] != SEPARATOR_CHAR)
+			if (valid_char(line, i))
 			{
 				reform[*pos] = ' ';
 				*pos += 1;
 			}
 			reform[*pos] = line[*i];
 			*pos += 1;
-		} 
+		}
 		else
 			skip_space(line, reform, i, pos);
 		*i += 1;
@@ -80,7 +87,7 @@ static char	*final_reformat(char *reform, int *i, int *pos, int separator)
 	ft_strdel(&reform);
 	return (final);
 }
-		
+
 char	*reformat(char *line)
 {
 	int		i;
