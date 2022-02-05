@@ -6,14 +6,14 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 18:57:30 by mlink             #+#    #+#             */
-/*   Updated: 2021/12/25 01:51:20 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2022/02/04 15:16:27 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 #include "error.h"
 
-static void				argum_len(char *argum, int *len, int *i)
+static void	argum_len(char *argum, int *len, int *i)
 {
 	if (argum[0] == DIRECT_CHAR)
 	{
@@ -29,7 +29,7 @@ static void				argum_len(char *argum, int *len, int *i)
 
 static unsigned long	ft_pow(int number, int power)
 {
-	unsigned long total;
+	unsigned long	total;
 
 	total = number;
 	if (!power)
@@ -47,7 +47,7 @@ static unsigned long	ft_pow(int number, int power)
 	return (total);
 }
 
-char			*x_to_deci(char *argum)
+char	*x_to_deci(char *argum)
 {
 	unsigned long	hex;
 	int				len;
@@ -69,11 +69,10 @@ char			*x_to_deci(char *argum)
 		len = len - 1;
 		i = i + 1;
 	}
-	printf("x_to_deci %s, %lu\n", argum, hex);
 	return (ft_ultoa(hex));
 }
 
-static void		get_hex(t_operation *new, char *line, int i)
+static void	get_hex(t_operation *new, char *line, int i)
 {
 	char	*temp;
 	char	*hex;
@@ -85,7 +84,7 @@ static void		get_hex(t_operation *new, char *line, int i)
 	free(hex);
 }
 
-void		get_args(t_operation *new, char *line)
+void	get_args(t_operation *new, char *line)
 {
 	int		i;
 	int		j;

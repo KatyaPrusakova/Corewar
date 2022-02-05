@@ -6,7 +6,7 @@
 #    By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/09 11:51:40 by ksuomala          #+#    #+#              #
-#    Updated: 2021/12/29 13:19:17 by katyaprusak      ###   ########.fr        #
+#    Updated: 2022/02/04 15:45:16 by katyaprusak      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ ft_strmap.c ft_strmapi.c ft_strequ.c ft_strnequ.c ft_strtrim.c ft_strjoin.c\
 ft_strsplit.c ft_strsub.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c\
 ft_putnbr_fd.c get_next_line.c ft_sqrt.c ft_lstnew.c ft_lstdelone.c\
 ft_lstdel.c ft_str_end.c ft_isspace.c ft_ultoa.c\
+ft_strjoin_free.c\
 ft_lstadd.c\
 ft_lstiter.c\
 ft_lstmap.c\

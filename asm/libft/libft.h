@@ -6,7 +6,7 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/09 12:07:29 by ksuomala          #+#    #+#             */
-/*   Updated: 2021/12/29 13:18:02 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2022/02/04 15:45:55 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ typedef struct s_list
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
+
+char				*ft_strjoin_free(char *s1, char *s2);
 
 t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void*, size_t));

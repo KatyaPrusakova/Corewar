@@ -6,7 +6,7 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 18:37:35 by mlink             #+#    #+#             */
-/*   Updated: 2021/12/29 19:07:17 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2022/02/04 15:48:29 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	read_validate_file(t_asm **core, t_operation **list)
 {
 	char	*line;
 	char	*tmp;
-	(*list) = NULL;
 
+	(*list) = NULL;
 	line = NULL;
 	while (get_next_line((*core)->source_fd, &line) > 0)
 	{
@@ -34,20 +34,20 @@ void	read_validate_file(t_asm **core, t_operation **list)
 			tmp++;
 		if (ft_strnstr(tmp, NAME_CMD_STRING, ft_strlen(NAME_CMD_STRING)))
 		{
-			((*core)->champ_name) ? ft_error(ERR_MULT_NAME) : 0;
+			if ((*core)->champ_name)
+				ft_error(ERR_MULT_NAME);
 			(*core)->champ_name = save_name_comment(core, line);
 		}
 		else if (ft_strnstr(tmp, COMMENT_CMD_STRING, \
 							ft_strlen(COMMENT_CMD_STRING)))
 		{
-			((*core)->champ_comment) ? ft_error(ERR_MULT_NAME) : 0;
+			if ((*core)->champ_comment)
+				ft_error(ERR_MULT_NAME);
 			(*core)->champ_comment = save_name_comment(core, line);
 		}
 		else
 			lex_parser(core, list, line);
 		free(line);
 	}
-	// delete print
-	print_struct(list);
 	validate_input(core, list);
 }

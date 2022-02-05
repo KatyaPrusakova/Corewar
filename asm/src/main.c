@@ -6,18 +6,16 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 13:10:31 by mlink             #+#    #+#             */
-/*   Updated: 2022/01/12 20:07:23 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2022/02/04 18:09:28 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 #include "error.h"
 
-
-
 void	check_operation(t_operation *operation, t_asm **core)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < 16)
@@ -31,18 +29,18 @@ void	check_operation(t_operation *operation, t_asm **core)
 	}
 	if (i == 16)
 	{
-		printf("Invalid instruction: \"%s\" on line %d\n", \
+		ft_printf("Invalid instruction: \"%s\" on line %d\n", \
 					operation->op_name, (*core)->line_pos);
 		ft_error("No operation found!");
 	}
 }
 
-
 /*
 	Function that checks if the file is correct and if it is, it saves it in the
 	corresponding new t_operation struct. 
 */
-void		get_label_op(t_asm **core, t_operation **list, char *line)
+
+void	get_label_op(t_asm **core, t_operation **list, char *line)
 {
 	int			i;
 	t_operation	*new;
@@ -52,7 +50,7 @@ void		get_label_op(t_asm **core, t_operation **list, char *line)
 	while (new->next)
 		new = new->next;
 	new->line = (*core)->line_pos;
-	while (line[i])
+	while (line[i] != '\0')
 	{
 		if (line[i] == SEPARATOR_CHAR)
 		{
@@ -62,14 +60,13 @@ void		get_label_op(t_asm **core, t_operation **list, char *line)
 			if (new->op_name)
 				break ;
 		}
-		(line[i] != '\0') ? (i += 1) : 0;
+		i += 1;
 	}
 	if (new->op_name)
 	{
 		get_args(new, line);
 		check_operation(new, core);
 	}
-	
 }
 
 /*
@@ -81,7 +78,7 @@ void		get_label_op(t_asm **core, t_operation **list, char *line)
 
 void	lex_parser(t_asm **core, t_operation **list, char *line)
 {
-	char	*reform;
+	char		*reform;
 
 	if (!line || line[0] == '\0')
 		return ;
@@ -98,16 +95,13 @@ void	lex_parser(t_asm **core, t_operation **list, char *line)
 		else
 			ft_error(ERR_NAME_COM);
 	}
-	
 	reform = reformat(line);
-	// printf("reform %s \n", reform);
 	list_append(list);
 	get_label_op(core, list, reform);
 	free(reform);
 }
 
-
-int		main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_asm		*core;
 	t_operation	*list;

@@ -6,7 +6,7 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 01:08:44 by katyaprusak       #+#    #+#             */
-/*   Updated: 2021/12/29 13:30:29 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2022/02/04 15:51:05 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,30 +19,23 @@
 
 void	write_magic_number(int fd)
 {
-	int magic;
+	int	magic;
 
 	magic = COREWAR_EXEC_MAGIC;
-	// printf("magic number %x\n", magic);
 	magic = SwapByte4(magic);
-	// printf("after magic number %x\n", magic);
 	write(fd, &magic, 4);
 }
-
 
 /*
 ** Write champions executable code size in 4 bytes
 */
 
-
 void	write_exec_size(t_asm **core, int fd)
 {
-	int size;
+	int	size;
 
 	size = (*core)->byte_size;
-	
-	printf("magic size %x\n", size);
 	size = SwapByte4(size);
-	printf("after swap size %x\n", size);
 	write(fd, &size, 4);
 }
 

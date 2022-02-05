@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print.c                                            :+:      :+:    :+:   */
+/*   validation_line.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/03 20:37:25 by katyaprusak       #+#    #+#             */
-/*   Updated: 2022/02/04 15:56:44 by katyaprusak      ###   ########.fr       */
+/*   Created: 2021/12/28 18:20:45 by katyaprusak       #+#    #+#             */
+/*   Updated: 2022/02/04 14:50:31 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
-#include "error.h"
 
-void	print_struct(t_operation **list)
+void	validate_line(t_operation *operation, t_oplist ref)
 {
-	int			i;
-	t_operation	*new;
+	int	i;
+	int	ret;
 
 	i = 0;
-	new = *list;
-	while (new != NULL)
+	while (i < ref.arg_cnt)
 	{
-		ft_printf("label  %s\n", new->label);
-		ft_printf("op_name    %s\n", new->op_name);
-		ft_printf("arg |%s| |%s| |%s|\n", new->arg[0], new->arg[1], new->arg[2]);
-		ft_printf("line       %d\n", new->line);
-		ft_printf("______\n");
-		new = new->next;
+		ret = validate_arg(operation->arg[i]);
+		if ((ret | ref.arg_type[i]) == ref.arg_type[i] && ret != 0)
+			operation->argtypes[i] = ret;
+		else
+			ft_error("Wrong argent type!");
+		i += 1;
 	}
+	if (i < 3 && operation->arg[i])
+		ft_error("Wrong argent number!");
+	operation->arg_type_code = ref.arg_type_code;
+	operation->op_code = ref.opcode;
 }

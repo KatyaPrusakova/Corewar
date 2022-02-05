@@ -6,7 +6,7 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 18:47:28 by mlink             #+#    #+#             */
-/*   Updated: 2021/12/28 18:37:32 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2022/02/04 17:01:05 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,13 @@ static char	*filename_pars(const char *source, const char *src_type,\
 {
 	char	*target;
 	char	*base;
-
 	
 	target = NULL;
 
 	if (ft_str_end(source, src_type))
 	{
-		// test.s -> test
 		base = ft_strsub(source, 0, ft_strlen(source) - ft_strlen(src_type));
 		target = ft_strjoin(base, target_type);
-		// target = name_of_file.cor
 		free(base);
 	}
 	else
@@ -76,17 +73,17 @@ static t_operation		*new_list(void)
 	new->arg[0] = NULL;
 	new->arg[1] = NULL;
 	new->arg[2] = NULL;
-	// new->argtypes[0] = 0;
-	// new->argtypes[1] = 0;
-	// new->argtypes[2] = 0;
-	// new->next = NULL;
-	// new->op_size = 0;
-	// new->t_dir_size = 0;
-	// new->op_code = 0;
-	// new->position = 0;
-	// new->label_pos[0] = 0;
-	// new->label_pos[1] = 0;
-	// new->label_pos[2] = 0;
+	new->argtypes[0] = 0;
+	new->argtypes[1] = 0;
+	new->argtypes[2] = 0;
+	new->next = NULL;
+	new->op_size = 0;
+	new->t_dir_size = 0;
+	new->op_code = 0;
+	new->position = 0;
+	new->label_pos[0] = 0;
+	new->label_pos[1] = 0;
+	new->label_pos[2] = 0;
 	return (new);
 }
 

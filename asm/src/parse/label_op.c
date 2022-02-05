@@ -6,7 +6,7 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 18:51:18 by mlink             #+#    #+#             */
-/*   Updated: 2021/12/25 00:59:23 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2022/02/04 15:20:17 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 static void	check_label_chars(char *label)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (label[i])
@@ -35,9 +35,9 @@ static void	check_label_chars(char *label)
 ** Character validation 
 */
 
-static void		check_dup_labels(t_operation **list, char *label)
+static void	check_dup_labels(t_operation **list, char *label)
 {
-	t_operation *current;
+	t_operation	*current;
 
 	current = *list;
 	while (current->next)
@@ -50,7 +50,7 @@ static void		check_dup_labels(t_operation **list, char *label)
 
 static void	save_label(t_operation **list, t_operation *new, char *line)
 {
-	int pos;
+	int	pos;
 
 	if (new->label != NULL)
 	{
@@ -64,7 +64,7 @@ static void	save_label(t_operation **list, t_operation *new, char *line)
 	check_dup_labels(list, new->label);
 }
 
-void		save_label_op(t_operation **list, t_operation *new, \
+void	save_label_op(t_operation **list, t_operation *new, \
 			char *line, int *i)
 {
 	char	*tmp;
@@ -84,10 +84,8 @@ void		save_label_op(t_operation **list, t_operation *new, \
 			tmp++;
 			save_label(list, new, line);
 			new->op_name = ft_strdup(tmp);
-			
 		}
 		else
 			new->op_name = ft_strdup(line);
-			// printf("%s\n", new->op_name);
 	}
 }

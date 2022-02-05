@@ -6,13 +6,11 @@
 /*   By: katyaprusakova <katyaprusakova@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/28 19:48:41 by katyaprusak       #+#    #+#             */
-/*   Updated: 2021/12/29 13:30:11 by katyaprusak      ###   ########.fr       */
+/*   Updated: 2022/02/04 15:17:56 by katyaprusak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "asm.h"
-
 
 /*
 ** Write T_REG argument to .cor
@@ -20,7 +18,7 @@
 
 static void	write_t_reg(char *arg, int fd)
 {
-	int val;
+	int	val;
 
 	val = ft_atoi(arg + 1);
 	write(fd, &val, 1);
@@ -65,9 +63,9 @@ static void	write_t_ind(char *arg, int label_pos, int fd)
 ** Cycle through arguments and write them to .cor
 */
 
-static void	write_args_to_bytecode(t_operation *op, int fd)
+void	write_args_to_bytecode(t_operation *op, int fd)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < 3)
@@ -82,10 +80,10 @@ static void	write_args_to_bytecode(t_operation *op, int fd)
 	}
 }
 
-int		get_arg_code(t_operation *operation)
+int	get_arg_code(t_operation *operation)
 {
-	int i;
-	int shift;
+	int	i;
+	int	shift;
 	int	ret;
 
 	i = 0;
@@ -103,30 +101,4 @@ int		get_arg_code(t_operation *operation)
 		i += 1;
 	}
 	return (ret);
-}
-
-/*
-** Write champs exec code to .cor
-*/
-
-void		write_exec_code(int target_fd, t_operation *op)
-{
-	t_operation	*cpy;
-	int			arg_code;
-
-	cpy = op;
-	while (cpy)
-	{
-		if (cpy->op_code)
-		{
-			write(target_fd, &cpy->op_code, 1);
-			if (cpy->arg_type_code)
-			{
-				arg_code = get_arg_code(cpy);
-				write(target_fd, &arg_code, 1);
-			}
-			write_args_to_bytecode(cpy, target_fd);
-		}
-		cpy = cpy->next;
-	}
 }
